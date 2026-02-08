@@ -1,77 +1,90 @@
-import React, { useState } from 'react';
-// Login Page
+// pages/LoginPage.js
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 const LoginPage = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const theme = useSelector((state) => state.theme);
+  const currentTheme = theme.mode === 'system' ? theme.systemPreference : theme.mode;
 
-  const handleLogin = () => {
-    if (username === 'admin' && password === 'admin') {
-      onLogin();
-    } else {
-      setError('Invalid username or password');
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      if (currentTheme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
     }
-  };
-
-  const handleKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      handleLogin();
-    }
-  };
+  }, [currentTheme]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-orange-50 flex items-center justify-center items-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4 transition-colors duration-200">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 max-w-md w-full">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-red-800 mb-2">🥢</h1>
-          <h2 className="text-2xl font-bold text-gray-800">Chinese Restaurant</h2>
-          <p className="text-gray-600">Menu Management System</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+            Restaurant Menu Management System
+          </h1>
+          <p className="text-gray-600 dark:text-gray-300">
+            Menu Management System
+          </p>
         </div>
         
-        <div className="space-y-4">
+        <div className="mb-8 p-4 bg-blue-50 dark:bg-gray-700 rounded-lg">
+          <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+            Login Info
+          </h2>
+          <p className="text-gray-700 dark:text-gray-300 text-sm">
+            Username: admin<br />
+            Password: admin
+          </p>
+        </div>
+
+        <form 
+          onSubmit={(e) => {
+            e.preventDefault();
+            onLogin();
+          }}
+          className="space-y-6"
+        >
           <div>
-            <label className="block text-sm font-semibold mb-2 text-gray-700">Username</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              User name
+            </label>
             <input
               type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              onKeyDown={handleKeyPress}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-              placeholder="Enter username"
+              defaultValue="admin"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
             />
           </div>
-          
+
           <div>
-            <label className="block text-sm font-semibold mb-2 text-gray-700">Password</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+             Password
+            </label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              onKeyPress={handleKeyPress}
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
-              placeholder="Enter password"
+              defaultValue="password"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              required
             />
           </div>
-          
-          {error && (
-            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded">
-              {error}
-            </div>
-          )}
-          
+
           <button
-            onClick={handleLogin}
-            className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition font-semibold"
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200"
           >
             Login
           </button>
-          
-          <div className="text-center text-sm text-gray-500 mt-4">
-            Default credentials: admin / admin
-          </div>
+        </form>
+
+        <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
+            当前主题: {currentTheme === 'dark' ? '深色模式' : '浅色模式'}
+          </p>
         </div>
       </div>
     </div>
   );
 };
+
 export default LoginPage;

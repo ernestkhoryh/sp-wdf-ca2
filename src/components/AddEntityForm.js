@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 const AddEntityCategoryTestId = 'add-entity-category';
-const AddEntitySubmitTestId = 'add-entity-submit';
+// const AddEntitySubmitTestId = 'add-entity-submit';
 
 const mainCategories = [
   'Proteins (蛋白)',
@@ -81,18 +81,10 @@ const generateId = () => {
           onKeyDown = {handleKeyDown}
           className="px-2 py-1 border border-gray-400 flex-1 max-w-xs"
         />
-        <input 
-          type="submit" 
-          data-testid={AddEntitySubmitTestId}
-          value="add"
+        <button
           onClick={handleSubmit}
-          className="px-4 py-1 border border-gray-400 bg-green-100 hover:bg-green-700 active:bg-green-800 cursor-pointer transition-colors"
-          style={{
-            backgroundColor: 'green',
-            color: 'white',
-            border: '1px solid #16a34a'
-          }}
-        />
+          className="px-4 py-1 border border-gray-400 bg-green-200 hover:bg-gray-300 active:bg-gray-400 cursor-pointer transistion-colors"
+        >add sub-category</button>
       </div>
     </div>
   );

@@ -78,20 +78,28 @@ const MenuManagementPage = ({ entities, setEntities, selectedIds, setSelectedIds
         </div>
       </div>
       
-      <div className="p-4">
+      <div className="  p-4 ">
         <AddEntityForm onAdd={handleAdd} />
         <div className="flex gap-4">
           <FilterPanel 
             entities={entities}
             selectedCategories={selectedCategories}
-            onToggleCategory={handleToggleCategory}
+            onToggleCategory={handleToggleCategory} className="p-4 
+  bg-gray-50 text-gray-900
+  dark:bg-gray-900 dark:text-gray-50
+  min-h-screen
+"
           />
           <EntitiesList 
             entities={filteredEntities}
             onDelete={handleDelete}
             onDeleteSelected={handleDeleteSelected}
             selectedIds={selectedIds}
-            onSelect={handleSelect}
+            onSelect={handleSelect} className="p-4 
+  bg-gray-50 text-gray-900
+  dark:bg-gray-900 dark:text-gray-50
+  min-h-screen
+"
           />
         </div>
       </div>
