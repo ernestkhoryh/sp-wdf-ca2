@@ -1,0 +1,190 @@
+/* index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.ml-3 {
+  margin-left: 0.75rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+/* Flexbox */
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Borders */
+.border {
+  border: 1px solid;
+}
+
+.border-gray-400 {
+  border-color: #9ca3af;
+}
+
+/* Typography */
+.font-serif {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+/* List Styles */
+.list-none {
+  list-style-type: none;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.pl-5 {
+  padding-left: 1.25rem;
+}
+
+/* Width */
+.min-w-[150px] {
+  min-width: 150px;
+}
+
+.min-w-[200px] {
+  min-width: 200px;
+}
+
+.max-w-xs {
+  max-width: 20rem;
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="submit"],
+select,
+button {
+  font-size: 1rem;
+}
+
+input[type="text"],
+select {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #9ca3af;
+}
+
+input[type="submit"],
+button {
+  padding: 0.25rem 1rem;
+  border: 1px solid #9ca3af;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+  background-color: #f3f4f6;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Labels */
+label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Utility Classes */
+.cursor-pointer {
+  cursor: pointer;
+}
